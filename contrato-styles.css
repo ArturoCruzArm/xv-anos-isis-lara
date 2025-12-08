@@ -1,0 +1,319 @@
+:root {
+    --purple: #9c27b0;
+    --purple-light: #ba68c8;
+    --purple-dark: #6a1b9a;
+    --gold: #d4af37;
+    --gold-light: #f4d03f;
+    --gold-dark: #b8941f;
+    --cream: #faf8f3;
+    --white: #ffffff;
+    --font-main: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 50%, var(--purple-light) 100%);
+    color: var(--cream);
+    line-height: 1.8;
+    font-size: 16px;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 30px 40px;
+    border: 1px solid var(--gold);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.contract-header {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid var(--gold);
+    margin-bottom: 30px;
+}
+
+.contract-header h1 {
+    font-size: 2.5rem;
+    color: var(--gold-light);
+    margin: 0;
+    font-weight: 700;
+}
+
+.contract-header h2 {
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin: 10px 0 0;
+    font-weight: 400;
+}
+
+.contract-section {
+    margin-bottom: 35px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.contract-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.contract-section h3 {
+    font-size: 1.6rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.contract-section h4 {
+    font-size: 1.2rem;
+    color: var(--gold-light);
+    margin-bottom: 15px;
+}
+
+.party-info, .family-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.party, .family-group {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.party h4, .family-group h4 {
+    color: var(--gold);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.party p, .event-info p, .family-group p, .payment-item p {
+    margin: 5px 0;
+}
+
+p strong {
+    color: var(--gold-light);
+    font-weight: 600;
+}
+
+.event-info {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.highlight {
+    background: rgba(212, 175, 55, 0.1);
+    padding: 25px;
+    border-radius: 10px;
+    margin: -25px;
+    margin-bottom: 35px;
+}
+
+.package-info h4 {
+    color: var(--gold-light);
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.package-list {
+    list-style: none;
+    padding: 0;
+}
+
+.package-list li {
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+    padding-left: 5px;
+}
+
+.terms ol {
+    padding-left: 25px;
+}
+
+.terms li {
+    margin-bottom: 15px;
+}
+
+.cancellation-policy ul {
+    padding-left: 20px;
+}
+
+.cancellation-policy li {
+    margin-bottom: 10px;
+}
+
+.payment-info {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.payment-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+}
+
+.payment-table td {
+    padding: 12px;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.payment-table .amount {
+    text-align: right;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.payment-table .total-row td {
+    font-size: 1.3rem;
+    color: var(--gold-light);
+    border-top: 2px solid var(--gold);
+    border-bottom: none;
+}
+
+.payment-schedule {
+    margin-top: 20px;
+}
+
+.payment-schedule h4 {
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.payment-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--gold);
+}
+
+.payment-status {
+    font-weight: bold;
+    color: #ffc107;
+    margin-top: 5px;
+}
+
+.payment-status.paid {
+    color: #4CAF50;
+}
+
+.signatures {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.signatures h3 {
+    font-size: 1.6rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.signature-date {
+    margin-bottom: 40px;
+    font-style: italic;
+    color: var(--gold);
+}
+
+.signature-boxes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin-top: 20px;
+}
+
+.signature-box {
+    text-align: center;
+}
+
+.signature-line {
+    border-bottom: 1px solid var(--cream);
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.signature-box p {
+    margin: 5px 0;
+    color: var(--cream);
+}
+
+.back-button-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background: var(--gold);
+    color: var(--purple-dark);
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    background: var(--gold-light);
+}
+
+.contract-footer {
+    text-align: center;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    font-size: 0.9rem;
+    color: var(--gold);
+}
+
+.contract-footer p {
+    margin: 8px 0;
+}
+
+@media (max-width: 768px) {
+    .party-info, .family-info, .signature-boxes {
+        grid-template-columns: 1fr;
+    }
+    .container {
+        padding: 20px;
+    }
+    .highlight {
+        margin: -20px;
+        margin-bottom: 35px;
+    }
+    .contract-header h1 {
+        font-size: 2rem;
+    }
+    .contract-header h2 {
+        font-size: 1.2rem;
+    }
+}
+
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    .container {
+        box-shadow: none;
+        border: 1px solid #ccc;
+    }
+    .back-button-container {
+        display: none;
+    }
+}

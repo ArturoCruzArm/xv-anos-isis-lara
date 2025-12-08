@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector de Fotos - XV Años Isis Francia Sarabi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple: #9c27b0;
+            --purple-light: #ba68c8;
+            --purple-dark: #6a1b9a;
+            --gold: #d4af37;
+            --gold-light: #f4d03f;
+            --gold-dark: #b8941f;
+            --cream: #faf8f3;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 50%, var(--purple-light) 100%);
+            color: var(--cream);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            margin-bottom: 30px;
+        }
+
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 6vw, 3rem);
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--gold-light);
+            margin-bottom: 20px;
+        }
+
+        /* Coming Soon Section */
+        .coming-soon-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 60px 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .coming-soon-icon {
+            font-size: 6rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.8;
+            }
+        }
+
+        .coming-soon-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .coming-soon-text {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            color: var(--cream);
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .event-date {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            color: var(--gold-light);
+            margin: 30px 0;
+            padding: 20px;
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        /* Info Cards */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .info-card-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .info-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .info-card-text {
+            color: var(--cream);
+            line-height: 1.6;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            margin: 10px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--purple-dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn-group {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 40px;
+            border-top: 2px solid var(--gold);
+        }
+
+        footer p {
+            color: var(--gold);
+            margin: 8px 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .info-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="main-title">Selector de Fotos</h1>
+            <h2 class="subtitle">XV Años - Isis Francia Sarabi</h2>
+        </header>
+
+        <!-- Coming Soon Section -->
+        <section class="coming-soon-section">
+            <div class="coming-soon-icon">
+                <i class="fas fa-camera"></i>
+            </div>
+            <h2 class="coming-soon-title">Próximamente Disponible</h2>
+            <p class="coming-soon-text">
+                El selector de fotos estará disponible después del evento. Aquí podrás ver todas las fotografías capturadas durante tu celebración y seleccionar tus favoritas para impresión, ampliación y compartir en redes sociales.
+            </p>
+            <div class="event-date">
+                <i class="fas fa-calendar-alt"></i> Evento: 20 de Diciembre de 2025
+            </div>
+        </section>
+
+        <!-- Info Cards -->
+        <section class="info-cards">
+            <div class="info-card">
+                <div class="info-card-icon">
+                    <i class="fas fa-images"></i>
+                </div>
+                <h3 class="info-card-title">Galería Completa</h3>
+                <p class="info-card-text">
+                    Después del evento, tendrás acceso a todas las fotografías capturadas durante la ceremonia y recepción.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-card-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h3 class="info-card-title">Selección Personalizada</h3>
+                <p class="info-card-text">
+                    Podrás clasificar tus fotos favoritas para impresión, ampliación, redes sociales o invitaciones web.
+                </p>
+            </div>
+
+            <div class="info-card">
+                <div class="info-card-icon">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3 class="info-card-title">Envío Directo</h3>
+                <p class="info-card-text">
+                    Tu selección se enviará automáticamente por WhatsApp para procesar tu pedido final.
+                </p>
+            </div>
+        </section>
+
+        <!-- What to Expect -->
+        <section class="coming-soon-section" style="margin-top: 40px;">
+            <h2 class="coming-soon-title" style="font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 30px;">
+                <i class="fas fa-clock"></i> Cronología de Entrega
+            </h2>
+            <div style="text-align: left; max-width: 700px; margin: 0 auto;">
+                <div style="margin: 20px 0; padding: 15px; background: rgba(255, 255, 255, 0.08); border-radius: 10px; border-left: 4px solid var(--gold);">
+                    <h4 style="color: var(--gold); margin-bottom: 10px;">
+                        <i class="fas fa-calendar-check"></i> Inmediatamente después del evento
+                    </h4>
+                    <p style="color: var(--cream);">
+                        El selector de fotos estará activo con todas las imágenes del evento.
+                    </p>
+                </div>
+                <div style="margin: 20px 0; padding: 15px; background: rgba(255, 255, 255, 0.08); border-radius: 10px; border-left: 4px solid var(--gold);">
+                    <h4 style="color: var(--gold); margin-bottom: 10px;">
+                        <i class="fas fa-edit"></i> Durante las primeras 2 semanas
+                    </h4>
+                    <p style="color: var(--cream);">
+                        Podrás revisar todas las fotos y hacer tu selección de favoritas.
+                    </p>
+                </div>
+                <div style="margin: 20px 0; padding: 15px; background: rgba(255, 255, 255, 0.08); border-radius: 10px; border-left: 4px solid var(--gold);">
+                    <h4 style="color: var(--gold); margin-bottom: 10px;">
+                        <i class="fas fa-gift"></i> 30-45 días después
+                    </h4>
+                    <p style="color: var(--cream);">
+                        Recibirás tu paquete completo: fotos impresas, ampliación, video editado en 4K y todo el material digital.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Buttons -->
+        <div class="btn-group">
+            <a href="index.html" class="btn">
+                <i class="fas fa-home"></i> Volver a la Invitación
+            </a>
+            <a href="contrato.html" class="btn">
+                <i class="fas fa-file-contract"></i> Ver Contrato
+            </a>
+            <a href="logistica.html" class="btn">
+                <i class="fas fa-clipboard-list"></i> Ver Logística
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Producciones Foro 7</p>
+        <p>Fotografía, Video, Dron e Invitaciones Web</p>
+        <p><i class="fas fa-phone-alt"></i> Contacto: 477-920-3776</p>
+    </footer>
+</body>
+</html>

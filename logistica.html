@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logística del Evento - XV Años de Isis Francia Sarabi</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #6a1b9a 0%, #9c27b0 50%, #ba68c8 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .logistics-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            background: linear-gradient(135deg, #6a1b9a 0%, #9c27b0 50%, #ba68c8 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            display: inline-block;
+            background: white;
+            color: #9c27b0;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 0.95em;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-links a.active {
+            background: #7b1fa2;
+            color: white;
+        }
+
+        .content {
+            padding: 30px;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 20px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: linear-gradient(to bottom, #9c27b0, #ba68c8);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding-left: 100px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 38px;
+            top: 0;
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            background: #9c27b0;
+            border: 4px solid white;
+            box-shadow: 0 0 0 3px #9c27b0;
+        }
+
+        .time-badge {
+            display: inline-block;
+            background: #9c27b0;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .timeline-content {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #9c27b0;
+        }
+
+        .timeline-content h3 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        .timeline-content p {
+            color: #666;
+            line-height: 1.6;
+            margin: 5px 0;
+        }
+
+        .location-card {
+            background: white;
+            border: 2px solid #9c27b0;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .location-card h4 {
+            color: #9c27b0;
+            margin-bottom: 10px;
+        }
+
+        .location-card a {
+            display: inline-block;
+            background: #9c27b0;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        .location-card a:hover {
+            background: #7b1fa2;
+            transform: translateX(5px);
+        }
+
+        .section {
+            margin: 30px 0;
+        }
+
+        .section h2 {
+            color: #9c27b0;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #ba68c8;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #9c27b0 0%, #ba68c8 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .info-box .icon {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .info-box h3 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+
+        .checklist {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .checklist ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            padding: 12px;
+            margin: 8px 0;
+            background: white;
+            border-radius: 5px;
+            border-left: 4px solid #9c27b0;
+            transition: all 0.3s;
+        }
+
+        .checklist li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .checklist li::before {
+            content: "✓";
+            color: #9c27b0;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #9c27b0 0%, #ba68c8 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            color: white;
+            border: none;
+            margin-bottom: 20px;
+        }
+
+        .contact-section p {
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+
+        .contact-section a {
+            color: white;
+            text-decoration: underline;
+        }
+
+        .equipment-section {
+            background: #f8f3ff;
+            border: 2px solid #ba68c8;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .equipment-section h3 {
+            color: #9c27b0;
+            margin-bottom: 15px;
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .equipment-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #ba68c8;
+        }
+
+        .equipment-item .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .important-note {
+            background: #fff9e6;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .important-note h3 {
+            color: #f57c00;
+            margin-bottom: 10px;
+        }
+
+        .important-note p {
+            color: #666;
+            margin: 5px 0;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                padding-left: 60px;
+            }
+
+            .timeline-item::before {
+                left: 8px;
+            }
+
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+
+        .print-button {
+            background: #9c27b0;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .print-button:hover {
+            background: #7b1fa2;
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+            .print-button,
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logistics-container">
+        <div class="header">
+            <h1>📋 Logística del Evento</h1>
+            <p>XV Años - Isis Francia Sarabi Lara Soto</p>
+            <p style="font-size: 1em; margin-top: 10px;">Sábado, 20 de Diciembre de 2025</p>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">🎉 Invitación</a>
+            <a href="contrato.html">📄 Contrato</a>
+            <a href="logistica.html" class="active">📋 Logística</a>
+            <a href="selector.html">📸 Selector de Fotos</a>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <h2>📅 SESIÓN FOTOGRÁFICA PREVIA</h2>
+                <p style="color: #666; margin-bottom: 20px;"><strong>Fecha:</strong> Lunes 8 de Diciembre, 2025</p>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="time-badge">Antes de las 3:00 PM</span>
+                        <div class="timeline-content">
+                            <h3>💄 Arreglo Personal</h3>
+                            <p><strong>Importante:</strong> Isis debe estar completamente arreglada (peinado y maquillaje) antes de llegar al Expiatorio</p>
+                            <p style="margin-top: 10px;"><strong>Vestimenta:</strong> Vestido completo con todos los accesorios</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="time-badge">3:00 PM</span>
+                        <div class="timeline-content">
+                            <h3>📸 Inicio de Sesión Fotográfica</h3>
+                            <p><strong>Duración estimada:</strong> 1.5 - 2 horas</p>
+                            <div class="location-card">
+                                <h4>📍 Templo Expiatorio del Sagrado Corazón</h4>
+                                <p>C. Madero 721, Centro, 37000 León de los Aldama, Gto.</p>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Templo+Expiatorio+Leon+Guanajuato" target="_blank">🗺️ Ver en Google Maps</a>
+                            </div>
+                            <p style="margin-top: 15px;"><strong>Escenas a Realizar:</strong></p>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>Fotos individuales de la quinceañera</li>
+                                <li>Fotos con el vestido completo</li>
+                                <li>Tomas en el interior del Expiatorio</li>
+                                <li>Tomas en el exterior y jardines</li>
+                                <li>Fotos de detalle del vestido, accesorios y zapatos</li>
+                                <li>Poses artísticas y elegantes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🎉 DÍA DEL EVENTO PRINCIPAL</h2>
+                <p style="color: #666; margin-bottom: 20px;"><strong>Fecha:</strong> Sábado 20 de Diciembre, 2025</p>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="time-badge">1:30 PM</span>
+                        <div class="timeline-content">
+                            <h3>📷 Llegada del Equipo (Ceremonia)</h3>
+                            <p>El equipo de fotografía y video llegará 30 minutos antes de la ceremonia para preparación</p>
+                            <p><strong>Actividades:</strong> Instalación de equipo, pruebas de iluminación, fotos de detalles previos</p>
+                            <div class="location-card">
+                                <h4>📍 Templo del Sagrado Corazón de Jesús</h4>
+                                <p>Valle del Sol, León, Guanajuato</p>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Templo+Sagrado+Corazon+Jesus+Valle+del+Sol+Leon+Guanajuato" target="_blank">🗺️ Ver en Google Maps</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="time-badge">2:00 PM</span>
+                        <div class="timeline-content">
+                            <h3>⛪ Ceremonia Religiosa</h3>
+                            <p><strong>Duración aproximada:</strong> 1 hora</p>
+                            <p style="margin-top: 15px;"><strong>Momentos a Capturar:</strong></p>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>Llegada de la quinceañera</li>
+                                <li>Entrada al templo</li>
+                                <li>Momentos durante la misa</li>
+                                <li>Ofrecimiento a la Virgen</li>
+                                <li>Fotos con padres y padrinos</li>
+                                <li>Salida del templo</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="time-badge">5:00 PM</span>
+                        <div class="timeline-content">
+                            <h3>🚗 Llegada a la Recepción</h3>
+                            <p>El equipo llegará con anticipación para preparar el salón y recibir a los invitados</p>
+                            <div class="location-card">
+                                <h4>📍 Salón Luna Llena</h4>
+                                <p>Aluminio #102, Granjas de Echeveste, León, Gto.</p>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Aluminio+102+Granjas+Echeveste+Leon+Guanajuato" target="_blank">🗺️ Ver en Google Maps</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="time-badge">5:30 PM</span>
+                        <div class="timeline-content">
+                            <h3>🎊 Inicio de Recepción de Invitados</h3>
+                            <p>Llegada de invitados y fotografías grupales</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="time-badge">6:00 PM</span>
+                        <div class="timeline-content">
+                            <h3>🎵 Inicio de la Fiesta</h3>
+                            <p><strong>DJ comienza la música</strong></p>
+                            <p style="margin-top: 15px;"><strong>Eventos a Cubrir:</strong></p>
+                            <ul style="margin-top: 10px; padding-left: 20px;">
+                                <li>Entrada triunfal de la quinceañera</li>
+                                <li>Vals de la quinceañera con chambelanes</li>
+                                <li>Cambio de zapatillas</li>
+                                <li>Baile con el padre</li>
+                                <li>Entrega de corona</li>
+                                <li>Brindis</li>
+                                <li>Corte del pastel</li>
+                                <li>Baile general y ambiente de la fiesta</li>
+                                <li>Fotos con familiares e invitados</li>
+                                <li>Momentos especiales durante la celebración</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="time-badge">11:00 PM</span>
+                        <div class="timeline-content">
+                            <h3>🌙 Fin de la Música</h3>
+                            <p>El DJ termina de tocar</p>
+                            <p><strong>Nota:</strong> La cobertura de fotografía y video continúa hasta el cierre del evento</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <span class="time-badge">11:30 PM</span>
+                        <div class="timeline-content">
+                            <h3>🏁 Desalojo del Salón</h3>
+                            <p>Fin de la cobertura y despedida de invitados</p>
+                            <p><strong>Límite del salón:</strong> 12:00 AM (medianoche)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>🎥 Equipo de Producción</h2>
+                <div class="equipment-section">
+                    <h3>Equipos que se utilizarán:</h3>
+                    <div class="equipment-grid">
+                        <div class="equipment-item">
+                            <div class="icon">📷</div>
+                            <h4>Fotografía</h4>
+                            <p><strong>1</strong> Cámara profesional</p>
+                            <p><strong>Múltiples</strong> Flashes</p>
+                        </div>
+                        <div class="equipment-item">
+                            <div class="icon">🎥</div>
+                            <h4>Video</h4>
+                            <p><strong>1</strong> Cámara de video 4K</p>
+                            <p><strong>2</strong> Lámparas LED</p>
+                        </div>
+                        <div class="equipment-item">
+                            <div class="icon">🎬</div>
+                            <h4>Edición</h4>
+                            <p>Software profesional</p>
+                            <p>Musicalización</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>✅ Lista de Verificación</h2>
+                <div class="checklist">
+                    <h3 style="color: #9c27b0; margin-bottom: 15px;">Antes del 8 de Diciembre (Sesión Previa):</h3>
+                    <ul>
+                        <li>Confirmar que el vestido esté listo</li>
+                        <li>Programar cita de peinado y maquillaje</li>
+                        <li>Tener listos todos los accesorios (zapatos, joyería, tiara, etc.)</li>
+                        <li>Confirmar hora de llegada al Expiatorio</li>
+                    </ul>
+
+                    <h3 style="color: #9c27b0; margin: 20px 0 15px 0;">Antes del 12 de Diciembre (8 días antes del evento):</h3>
+                    <ul>
+                        <li style="font-weight: bold; color: #28a745;">✓ ANTICIPO REALIZADO: $700 pesos</li>
+                        <li style="font-weight: bold; color: #9c27b0;">LIQUIDAR SALDO FINAL: $5,300 pesos</li>
+                        <li>Confirmar horarios de la misa y recepción</li>
+                        <li>Enviar lista de familiares para fotos grupales</li>
+                        <li>Confirmar lista completa de chambelanes</li>
+                    </ul>
+
+                    <h3 style="color: #9c27b0; margin: 20px 0 15px 0;">Una semana antes del evento (13 de diciembre):</h3>
+                    <ul>
+                        <li>Última confirmación con el equipo de producción</li>
+                        <li>Preparar lista de tomas especiales deseadas</li>
+                        <li>Compartir números de contacto de emergencia</li>
+                        <li>Coordinar con el DJ la proyección del videoclip</li>
+                    </ul>
+
+                    <h3 style="color: #9c27b0; margin: 20px 0 15px 0;">Día del evento (20 de diciembre):</h3>
+                    <ul>
+                        <li>Designar un coordinador del evento</li>
+                        <li>Tener lista la música para el vals</li>
+                        <li>Coordinar tiempos con el salón</li>
+                        <li>Preparar discursos o mensajes especiales</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>📦 Entrega de Material</h2>
+                <div class="checklist">
+                    <h3 style="color: #9c27b0; margin-bottom: 15px;">Lo que recibirás (30-45 días después del evento):</h3>
+                    <ul>
+                        <li>100 fotos impresas tamaño 5x7" en caja impresa</li>
+                        <li>1 foto ampliada 16x20 pulgadas</li>
+                        <li>1 película USB en 4K con duración de 3 horas, editada, musicalizada y titulada (original y copia)</li>
+                        <li>1 caja impresa para el USB</li>
+                        <li>1 videoclip con fotos de sesión previa para proyectar en el evento</li>
+                        <li>Material digital completo de fotografías</li>
+                        <li>Acceso a selector de fotos en línea</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="important-note">
+                <h3>⚠️ Notas Importantes</h3>
+                <p><strong>Sesión Previa:</strong> Recuerda que Isis debe estar completamente arreglada antes de llegar al Expiatorio el 8 de diciembre.</p>
+                <p><strong>Pago Final:</strong> El saldo de $5,300 debe ser liquidado 8 días antes del evento (12 de diciembre) para confirmar la fecha.</p>
+                <p><strong>Fotos de Niña a Grande:</strong> Favor de preparar las fotos de Isis desde pequeña hasta la actualidad para el video de "De Niña a Grande".</p>
+            </div>
+
+            <div class="contact-section">
+                <h2>📞 Contacto de Emergencia</h2>
+                <p><strong>Arturo Cruz - Producciones Foro 7</strong></p>
+                <p>📍 Dirección: Padilla 112, Cumbres de Arbide, León, Gto.</p>
+                <p>📱 WhatsApp: <a href="https://wa.me/524779203776" style="color: white; text-decoration: underline;">477-920-3776</a></p>
+                <p style="margin-top: 20px; font-size: 0.9em;">
+                    Para cualquier duda, cambio o confirmación de último momento, contactar directamente
+                </p>
+            </div>
+
+            <button class="print-button" onclick="window.print()">🖨️ Imprimir Logística</button>
+        </div>
+    </div>
+</body>
+</html>

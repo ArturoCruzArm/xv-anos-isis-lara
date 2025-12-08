@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Invitación a los XV años de Isis Francia Sarabi Lara Soto - 20 de diciembre de 2025">
+    <meta name="theme-color" content="#9c27b0">
+    <title>XV Años - Isis Francia Sarabi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple: #9c27b0;
+            --purple-light: #ba68c8;
+            --purple-dark: #6a1b9a;
+            --gold: #d4af37;
+            --gold-light: #f4d03f;
+            --gold-dark: #b8941f;
+            --cream: #faf8f3;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 50%, var(--purple-light) 100%);
+            color: var(--cream);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* Ornamental Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header with Crown */
+        header {
+            text-align: center;
+            padding: 60px 20px 40px;
+            position: relative;
+        }
+
+        .crown {
+            font-size: 4rem;
+            animation: float 3s ease-in-out infinite;
+            display: inline-block;
+            filter: drop-shadow(0 0 20px var(--gold));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 8vw, 4rem);
+            font-weight: 900;
+            color: var(--gold);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+            letter-spacing: 8px;
+        }
+
+        .quinceañera-name {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 700;
+            color: var(--gold-light);
+            text-shadow: 0 4px 20px rgba(212, 175, 55, 0.6);
+            margin: 30px 0;
+            line-height: 1.2;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 4px 20px rgba(212, 175, 55, 0.6); }
+            to { text-shadow: 0 4px 40px rgba(212, 175, 55, 0.9); }
+        }
+
+        /* Decorative Divider */
+        .divider {
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .divider::before {
+            content: '❖';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--purple);
+            color: var(--gold);
+            font-size: 1.5rem;
+            padding: 0 10px;
+        }
+
+        /* Section Styling */
+        section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            color: var(--gold);
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        /* Quote Section */
+        .quote {
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            font-style: italic;
+            color: var(--gold-light);
+            margin: 40px 0;
+            padding: 30px;
+            border-left: 3px solid var(--gold);
+            border-right: 3px solid var(--gold);
+        }
+
+        /* Parents & Godparents */
+        .family-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .family-card {
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .family-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .family-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            filter: drop-shadow(0 0 10px var(--gold));
+        }
+
+        .family-role {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .family-names {
+            font-size: 1.1rem;
+            color: var(--cream);
+            line-height: 1.8;
+        }
+
+        /* Event Details */
+        .event-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .event-card {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.1), rgba(212, 175, 55, 0.05));
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid var(--gold);
+            text-align: center;
+        }
+
+        .event-icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .event-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .event-info {
+            color: var(--cream);
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+
+        .event-info strong {
+            color: var(--gold-light);
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* Countdown Timer */
+        .countdown {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin: 40px 0;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px 15px;
+            text-align: center;
+            border: 2px solid var(--gold);
+        }
+
+        .countdown-value {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 700;
+            color: var(--gold-light);
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.9rem;
+            color: var(--cream);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 5px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            margin: 10px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--purple-dark);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--gold);
+            color: var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: var(--gold);
+            color: var(--purple-dark);
+        }
+
+        /* Maps */
+        .map-container {
+            margin: 30px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 3px solid var(--gold);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+
+        /* RSVP Form */
+        .rsvp-form {
+            max-width: 600px;
+            margin: 30px auto;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--cream);
+            font-size: 1rem;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(250, 248, 243, 0.5);
+        }
+
+        .form-group select option {
+            background: var(--purple-dark);
+            color: var(--cream);
+            padding: 10px;
+        }
+
+        /* Dress Code */
+        .dress-code {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+
+        .dress-code-icons {
+            font-size: 4rem;
+            margin: 20px 0;
+        }
+
+        .dress-code-text {
+            font-size: 1.3rem;
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        /* Social Share */
+        .social-share {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: var(--purple-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: 2px solid rgba(212, 175, 55, 0.3);
+        }
+
+        footer p {
+            color: var(--gold);
+            margin: 10px 0;
+        }
+
+        /* Success Message */
+        .success-message {
+            background: rgba(76, 175, 80, 0.2);
+            border: 2px solid #4CAF50;
+            color: #4CAF50;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            text-align: center;
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .countdown {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .event-details {
+                grid-template-columns: 1fr;
+            }
+
+            .family-section {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            .btn {
+                padding: 12px 30px;
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Floating Flowers Animation */
+        .floating-flower {
+            position: fixed;
+            font-size: 2rem;
+            opacity: 0.3;
+            pointer-events: none;
+            animation: floatFlower 15s infinite ease-in-out;
+        }
+
+        @keyframes floatFlower {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Flowers -->
+    <div class="floating-flower" style="left: 10%; animation-delay: 0s;">❀</div>
+    <div class="floating-flower" style="left: 30%; animation-delay: 3s;">✿</div>
+    <div class="floating-flower" style="left: 50%; animation-delay: 6s;">❁</div>
+    <div class="floating-flower" style="left: 70%; animation-delay: 9s;">❀</div>
+    <div class="floating-flower" style="left: 90%; animation-delay: 12s;">✿</div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="crown"><i class="fas fa-crown"></i></div>
+            <h1 class="main-title">MIS XV AÑOS</h1>
+            <h2 class="quinceañera-name">Isis Francia Sarabi<br>Lara Soto</h2>
+            <div class="divider"></div>
+        </header>
+
+        <!-- Quote -->
+        <div class="quote">
+            "Hoy comienza un nuevo capítulo lleno de sueños, ilusiones y magia. <br>
+            Gracias por acompañarme en este día tan especial."
+        </div>
+
+        <!-- Countdown -->
+        <section>
+            <h2 class="section-title"><i class="fas fa-clock"></i> Cuenta Regresiva</h2>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="countdown-value" id="days">00</span>
+                    <span class="countdown-label">Días</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="hours">00</span>
+                    <span class="countdown-label">Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="minutes">00</span>
+                    <span class="countdown-label">Minutos</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="countdown-value" id="seconds">00</span>
+                    <span class="countdown-label">Segundos</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Family -->
+        <section>
+            <h2 class="section-title"><i class="fas fa-users"></i> Mi Familia</h2>
+            <div class="family-section">
+                <div class="family-card">
+                    <div class="family-icon"><i class="fas fa-home"></i></div>
+                    <div class="family-role">Mis Padres</div>
+                    <div class="family-names">
+                        Rubén Enrique Lara Miranda<br>
+                        Yahaira Yessenia de la Luz Soto Moreno
+                    </div>
+                </div>
+                <div class="family-card">
+                    <div class="family-icon"><i class="fas fa-heart"></i></div>
+                    <div class="family-role">Mis Padrinos</div>
+                    <div class="family-names">
+                        Luis Bustos Vega<br>
+                        Magaly Grettel del Carmen Soto Moreno
+                    </div>
+                </div>
+                <div class="family-card">
+                    <div class="family-icon"><i class="fas fa-user-tie"></i></div>
+                    <div class="family-role">Chambelán Principal</div>
+                    <div class="family-names">
+                        Karol Ramsés Enrique Lara Soto
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Details -->
+        <section>
+            <h2 class="section-title"><i class="fas fa-map-marker-alt"></i> Detalles del Evento</h2>
+            <div class="event-details">
+                <!-- Ceremony -->
+                <div class="event-card">
+                    <span class="event-icon"><i class="fas fa-church"></i></span>
+                    <h3 class="event-title">Ceremonia</h3>
+                    <div class="event-info">
+                        <strong><i class="fas fa-calendar-alt"></i> Fecha</strong>
+                        Sábado, 20 de diciembre de 2025
+                    </div>
+                    <div class="event-info">
+                        <strong><i class="fas fa-clock"></i> Hora</strong>
+                        14:00 hrs
+                    </div>
+                    <div class="event-info">
+                        <strong><i class="fas fa-map-marker-alt"></i> Lugar</strong>
+                        Templo del Sagrado Corazón de Jesús<br>
+                        Valle del Sol, León, Gto.
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Templo+Sagrado+Corazon+Jesus+Valle+del+Sol+Leon+Guanajuato" target="_blank" class="btn"><i class="fas fa-map-marked-alt"></i> Ver Mapa</a>
+                        <button onclick="addToCalendar('ceremony')" class="btn btn-secondary"><i class="fas fa-calendar-plus"></i> Agendar</button>
+                    </div>
+                </div>
+
+                <!-- Reception -->
+                <div class="event-card">
+                    <span class="event-icon"><i class="fas fa-glass-cheers"></i></span>
+                    <h3 class="event-title">Recepción</h3>
+                    <div class="event-info">
+                        <strong><i class="fas fa-calendar-alt"></i> Fecha</strong>
+                        Sábado, 20 de diciembre de 2025
+                    </div>
+                    <div class="event-info">
+                        <strong><i class="fas fa-clock"></i> Hora</strong>
+                        17:30 hrs
+                    </div>
+                    <div class="event-info">
+                        <strong><i class="fas fa-map-marker-alt"></i> Lugar</strong>
+                        Salón Luna Llena<br>
+                        Aluminio #102<br>
+                        Granjas de Echeveste, León, Gto.
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <a href="https://www.google.com/maps/search/?api=1&query=Aluminio+102+Granjas+de+Echeveste+Leon+Guanajuato" target="_blank" class="btn"><i class="fas fa-map-marked-alt"></i> Ver Mapa</a>
+                        <button onclick="addToCalendar('reception')" class="btn btn-secondary"><i class="fas fa-calendar-plus"></i> Agendar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Maps -->
+        <section>
+            <h2 class="section-title"><i class="fas fa-map-marked-alt"></i> Ubicaciones</h2>
+            <div class="event-details">
+                <div>
+                    <h3 style="text-align: center; color: var(--gold); margin-bottom: 15px;"><i class="fas fa-church"></i> Ceremonia</h3>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.5!2d-101.65!3d21.12!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDA3JzEyLjAiTiAxMDHCsDM5JzAwLjAiVw!5e0!3m2!1sen!2smx!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div>
+                    <h3 style="text-align: center; color: var(--gold); margin-bottom: 15px;"><i class="fas fa-glass-cheers"></i> Recepción</h3>
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.5!2d-101.65!3d21.12!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDA3JzEyLjAiTiAxMDHCsDM5JzAwLjAiVw!5e0!3m2!1sen!2smx!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dress Code -->
+        <section>
+            <h2 class="section-title"><i class="fas fa-tshirt"></i> Código de Vestimenta</h2>
+            <div class="dress-code">
+                <div class="dress-code-icons"><i class="fas fa-user-tie"></i> <i class="fas fa-female"></i></div>
+                <p class="dress-code-text">FORMAL / ELEGANTE</p>
+                <p style="margin-top: 15px; font-size: 1rem; color: var(--cream);">
+                    Te pedimos asistir con vestimenta formal para hacer de esta noche una ocasión aún más especial
+                </p>
+            </div>
+        </section>
+
+        <!-- RSVP -->
+        <section>
+            <h2 class="section-title"><i class="fas fa-envelope"></i> Confirma tu Asistencia</h2>
+            <p style="text-align: center; margin-bottom: 30px; color: var(--cream);">
+                Por favor confirma tu asistencia antes del 13 de diciembre de 2025
+            </p>
+            <div class="rsvp-form">
+                <form id="rsvpForm" onsubmit="submitRSVP(event)">
+                    <div class="form-group">
+                        <label for="name">Nombre Completo *</label>
+                        <input type="text" id="name" name="name" required placeholder="Tu nombre completo">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Teléfono *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="10 dígitos">
+                    </div>
+                    <div class="form-group">
+                        <label for="guests">Número de Invitados *</label>
+                        <select id="guests" name="guests" required>
+                            <option value="">Selecciona...</option>
+                            <option value="1">1 persona</option>
+                            <option value="2">2 personas</option>
+                            <option value="3">3 personas</option>
+                            <option value="4">4 personas</option>
+                            <option value="5">5 personas</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="attendance">¿Confirmas tu asistencia? *</label>
+                        <select id="attendance" name="attendance" required>
+                            <option value="">Selecciona...</option>
+                            <option value="si">Sí, asistiré</option>
+                            <option value="no">No podré asistir</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensaje (Opcional)</label>
+                        <textarea id="message" name="message" placeholder="Déjame un mensaje..."></textarea>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Enviar Confirmación</button>
+                    </div>
+                </form>
+                <div id="successMessage" class="success-message">
+                    <i class="fas fa-check-circle"></i> ¡Gracias! Tu confirmación ha sido enviada correctamente.
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Share -->
+        <section class="social-share">
+            <h2 class="section-title"><i class="fas fa-share-alt"></i> Comparte</h2>
+            <p style="margin-bottom: 20px; color: var(--cream);">
+                Ayúdame a compartir esta invitación con tus amigos y familiares
+            </p>
+            <div class="social-icons">
+                <a href="#" onclick="shareWhatsApp()" class="social-icon" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" onclick="shareFacebook()" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" onclick="shareTwitter()" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" onclick="copyLink()" class="social-icon" title="Copiar enlace"><i class="fas fa-link"></i></a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p style="font-size: 1.2rem; margin-bottom: 15px;"><i class="fas fa-sparkles"></i> ¡Nos vemos el 20 de diciembre! <i class="fas fa-sparkles"></i></p>
+            <div class="divider" style="margin: 20px auto;"></div>
+            <p>Producciones Foro 7</p>
+            <p>Fotografía, Video, Dron e Invitaciones Web</p>
+            <p><i class="fas fa-phone-alt"></i> Contacto: 477-920-3776</p>
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">
+                © 2025 - Isis Francia Sarabi XV Años
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            // Fecha del evento: 20 de diciembre de 2025 a las 14:00 hrs
+            const eventDate = new Date(2025, 11, 20, 14, 0, 0).getTime(); // Mes 11 = Diciembre (0-indexed)
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            if (distance < 0) {
+                document.getElementById('countdown').innerHTML = '<p style="text-align: center; font-size: 1.5rem; color: var(--gold);">¡El evento ya comenzó! 🎉</p>';
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Add to Calendar
+        function addToCalendar(type) {
+            const title = type === 'ceremony' ? 'XV Años Isis - Ceremonia' : 'XV Años Isis - Recepción';
+            const location = type === 'ceremony'
+                ? 'Templo del Sagrado Corazón de Jesús, Valle del Sol, León, Gto.'
+                : 'Salón Luna Llena, Aluminio #102, Granjas de Echeveste, León, Gto.';
+            const startTime = type === 'ceremony' ? '20251220T140000' : '20251220T173000';
+            const endTime = type === 'ceremony' ? '20251220T150000' : '20251220T230000';
+
+            const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${startTime}/${endTime}&details=${encodeURIComponent('XV Años de Isis Francia Sarabi')}&location=${encodeURIComponent(location)}`;
+
+            window.open(googleCalendarUrl, '_blank');
+        }
+
+        // RSVP Form Submission
+        function submitRSVP(event) {
+            event.preventDefault();
+
+            const formData = new FormData(event.target);
+            const name = formData.get('name');
+            const phone = formData.get('phone');
+            const guests = formData.get('guests');
+            const attendance = formData.get('attendance');
+            const message = formData.get('message') || 'Sin mensaje';
+
+            const whatsappMessage = `
+✨ CONFIRMACIÓN XV AÑOS - ISIS FRANCIA SARABI ✨
+
+👤 Nombre: ${name}
+📱 Teléfono: ${phone}
+👥 Invitados: ${guests}
+✅ Asistencia: ${attendance === 'si' ? 'Sí asistiré' : 'No podré asistir'}
+💬 Mensaje: ${message}
+
+📅 Fecha: 20 de diciembre de 2025
+            `.trim();
+
+            const whatsappUrl = `https://wa.me/524779203776?text=${encodeURIComponent(whatsappMessage)}`;
+            window.open(whatsappUrl, '_blank');
+
+            document.getElementById('successMessage').style.display = 'block';
+            event.target.reset();
+
+            setTimeout(() => {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        }
+
+        // Social Sharing
+        function shareWhatsApp() {
+            const text = '¡Estás invitado a mis XV años! 👑✨ - Isis Francia Sarabi - 20 de diciembre de 2025';
+            const url = window.location.href;
+            window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
+        }
+
+        function shareFacebook() {
+            const url = window.location.href;
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function shareTwitter() {
+            const text = '¡Estás invitado a mis XV años! 👑✨ - Isis Francia Sarabi - 20 de diciembre de 2025';
+            const url = window.location.href;
+            window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+        }
+
+        function copyLink() {
+            const url = window.location.href;
+            navigator.clipboard.writeText(url).then(() => {
+                alert('¡Enlace copiado al portapapeles!');
+            }).catch(() => {
+                prompt('Copia este enlace:', url);
+            });
+        }
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
