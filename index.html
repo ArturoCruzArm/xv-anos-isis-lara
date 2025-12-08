@@ -6,6 +6,7 @@
     <meta name="description" content="Invitación a los XV años de Isis Francia Sarabi Lara Soto - 20 de diciembre de 2025">
     <meta name="theme-color" content="#9c27b0">
     <title>XV Años - Isis Francia Sarabi</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
@@ -609,11 +610,12 @@
                     </div>
                     <div class="event-info">
                         <strong><i class="fas fa-map-marker-alt"></i> Lugar</strong>
-                        Templo del Sagrado Corazón de Jesús<br>
-                        Valle del Sol, León, Gto.
+                        Parroquia del Sagrado Corazón de Jesús<br>
+                        Sol Naciente 120, Valle del Sol<br>
+                        37140 León de los Aldama, Gto.
                     </div>
                     <div style="margin-top: 20px;">
-                        <a href="https://www.google.com/maps/search/?api=1&query=Templo+Sagrado+Corazon+Jesus+Valle+del+Sol+Leon+Guanajuato" target="_blank" class="btn"><i class="fas fa-map-marked-alt"></i> Ver Mapa</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Sol+Naciente+120+Valle+del+Sol+Leon+Guanajuato" target="_blank" class="btn"><i class="fas fa-map-marked-alt"></i> Ver Mapa</a>
                         <button onclick="addToCalendar('ceremony')" class="btn btn-secondary"><i class="fas fa-calendar-plus"></i> Agendar</button>
                     </div>
                 </div>
@@ -633,11 +635,11 @@
                     <div class="event-info">
                         <strong><i class="fas fa-map-marker-alt"></i> Lugar</strong>
                         Salón Luna Llena<br>
-                        Aluminio #102<br>
-                        Granjas de Echeveste, León, Gto.
+                        Aluminio de Echeveste 102<br>
+                        Hacienda Echeveste, 37100 León de los Aldama, Gto.
                     </div>
                     <div style="margin-top: 20px;">
-                        <a href="https://www.google.com/maps/search/?api=1&query=Aluminio+102+Granjas+de+Echeveste+Leon+Guanajuato" target="_blank" class="btn"><i class="fas fa-map-marked-alt"></i> Ver Mapa</a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Aluminio+de+Echeveste+102+Hacienda+Echeveste+Leon+Guanajuato" target="_blank" class="btn"><i class="fas fa-map-marked-alt"></i> Ver Mapa</a>
                         <button onclick="addToCalendar('reception')" class="btn btn-secondary"><i class="fas fa-calendar-plus"></i> Agendar</button>
                     </div>
                 </div>
@@ -744,7 +746,7 @@
             <div class="divider" style="margin: 20px auto;"></div>
             <p>Producciones Foro 7</p>
             <p>Fotografía, Video, Dron e Invitaciones Web</p>
-            <p><i class="fas fa-phone-alt"></i> Contacto: 477-920-3776</p>
+            <p><i class="fas fa-phone-alt"></i> Contacto: +52 1 314 124 9757</p>
             <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">
                 © 2025 - Isis Francia Sarabi XV Años
             </p>
@@ -782,8 +784,8 @@
         function addToCalendar(type) {
             const title = type === 'ceremony' ? 'XV Años Isis - Ceremonia' : 'XV Años Isis - Recepción';
             const location = type === 'ceremony'
-                ? 'Templo del Sagrado Corazón de Jesús, Valle del Sol, León, Gto.'
-                : 'Salón Luna Llena, Aluminio #102, Granjas de Echeveste, León, Gto.';
+                ? 'Parroquia del Sagrado Corazón de Jesús, Sol Naciente 120, Valle del Sol, 37140 León de los Aldama, Gto.'
+                : 'Salón Luna Llena, Aluminio de Echeveste 102, Hacienda Echeveste, 37100 León de los Aldama, Gto.';
             const startTime = type === 'ceremony' ? '20251220T140000' : '20251220T173000';
             const endTime = type === 'ceremony' ? '20251220T150000' : '20251220T230000';
 
@@ -815,7 +817,7 @@
 📅 Fecha: 20 de diciembre de 2025
             `.trim();
 
-            const whatsappUrl = `https://wa.me/524779203776?text=${encodeURIComponent(whatsappMessage)}`;
+            const whatsappUrl = `https://wa.me/5213141249757?text=${encodeURIComponent(whatsappMessage)}`;
             window.open(whatsappUrl, '_blank');
 
             document.getElementById('successMessage').style.display = 'block';
