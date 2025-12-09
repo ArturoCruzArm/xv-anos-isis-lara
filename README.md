@@ -29,18 +29,18 @@ Sitio web para los XV años de Isis Francia Sarabi Lara Soto
 
 ## 📦 Paquete Contratado
 
-**Paquete de $6,000** incluye:
-- 100 fotos del evento impresas en tamaño 5x7 pulgadas
-- 1 película USB en 4K con duración de 3:00 hrs (original y copia)
+**Paquete de $5,000** incluye:
+- 80 fotos del evento impresas en tamaño 5x7 pulgadas
+- 1 película USB en 4K con duración de 2:00 hrs (original y copia)
 - 1 caja impresa para la USB
-- 1 foto ampliada a tamaño 16x20 pulgadas
+- 1 foto ampliada a tamaño 11x14 pulgadas
 - 1 caja impresa para las fotografías
 - 1 sesión fotográfica antes del evento
 
 ## 💰 Pagos
 
 - **Anticipo (Apartado):** $700 ✓ PAGADO
-- **Saldo Restante:** $5,300 (a pagar 8 días antes del evento - 12 de diciembre de 2025)
+- **Saldo Restante:** $4,300 (a pagar 8 días antes del evento - 12 de diciembre de 2025)
 
 ## 📂 Estructura del Proyecto
 
