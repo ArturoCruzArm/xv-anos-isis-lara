@@ -687,3 +687,31 @@ document.addEventListener('visibilitychange', () => {
 window.addEventListener('beforeunload', (e) => {
     saveSelections();
 });
+
+// ========================================
+// PROTECCIÓN DE IMÁGENES
+// ========================================
+// Bloquear click derecho en todas las imágenes
+document.addEventListener('contextmenu', (e) => {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+        showToast('Las imágenes están protegidas', 'warning');
+        return false;
+    }
+});
+
+// Prevenir arrastrar imágenes
+document.addEventListener('dragstart', (e) => {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+        return false;
+    }
+});
+
+// Prevenir selección de imágenes
+document.addEventListener('selectstart', (e) => {
+    if (e.target.tagName === 'IMG') {
+        e.preventDefault();
+        return false;
+    }
+});
