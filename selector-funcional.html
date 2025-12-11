@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selector de Fotos - XV Años Isis Francia Sarabi</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Playfair+Display:wght@400;700;900&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple: #9c27b0;
+            --purple-light: #ba68c8;
+            --purple-dark: #6a1b9a;
+            --gold: #d4af37;
+            --gold-light: #f4d03f;
+            --gold-dark: #b8941f;
+            --cream: #faf8f3;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(135deg, var(--purple-dark) 0%, var(--purple) 50%, var(--purple-light) 100%);
+            color: var(--cream);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            margin-bottom: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .main-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            color: var(--gold);
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1rem, 3vw, 1.5rem);
+            color: var(--gold-light);
+        }
+
+        /* Controls */
+        .controls {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .counter {
+            font-size: 1.2rem;
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        .filter-btns {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--gold);
+            color: var(--gold);
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--gold);
+            color: var(--purple-dark);
+        }
+
+        .action-btns {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--purple-dark);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, var(--gold-light), var(--gold));
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--gold);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Gallery Grid */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .photo-card {
+            position: relative;
+            aspect-ratio: 4/3;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .photo-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .photo-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .photo-card.selected {
+            border: 4px solid var(--gold);
+            box-shadow: 0 0 20px var(--gold);
+        }
+
+        .photo-card .category-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: bold;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            display: none;
+        }
+
+        .photo-card.selected .category-badge {
+            display: block;
+        }
+
+        .photo-card .select-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(212, 175, 55, 0.3);
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .photo-card.selected .select-overlay {
+            display: flex;
+        }
+
+        .photo-card .select-overlay i {
+            font-size: 3rem;
+            color: var(--gold);
+        }
+
+        /* Category Selection Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, var(--purple-dark), var(--purple));
+            padding: 30px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 100%;
+            border: 2px solid var(--gold);
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .category-options {
+            display: grid;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .category-option {
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .category-option:hover {
+            background: var(--gold);
+            color: var(--purple-dark);
+        }
+
+        .modal-close {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--gold);
+            border: 2px solid var(--gold);
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Loading */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-size: 1.5rem;
+            color: var(--gold);
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 3rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            color: white;
+            cursor: pointer;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+        }
+
+        .lightbox-prev {
+            left: 20px;
+        }
+
+        .lightbox-next {
+            right: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 10px;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .filter-btns,
+            .action-btns {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="main-title">Selector de Fotos</h1>
+            <h2 class="subtitle">XV Años - Isis Francia Sarabi</h2>
+        </header>
+
+        <div class="controls">
+            <div class="counter">
+                <i class="fas fa-images"></i>
+                <span id="selectedCount">0</span> fotos seleccionadas
+            </div>
+            <div class="filter-btns">
+                <button class="filter-btn active" data-filter="all">Todas</button>
+                <button class="filter-btn" data-filter="imprimir">Para Imprimir</button>
+                <button class="filter-btn" data-filter="ampliar">Para Ampliar</button>
+                <button class="filter-btn" data-filter="redes">Para Redes</button>
+                <button class="filter-btn" data-filter="web">Para Web</button>
+            </div>
+            <div class="action-btns">
+                <button class="btn btn-secondary" onclick="clearAll()">
+                    <i class="fas fa-times"></i> Limpiar
+                </button>
+                <button class="btn" onclick="sendSelection()">
+                    <i class="fab fa-whatsapp"></i> Enviar por WhatsApp
+                </button>
+            </div>
+        </div>
+
+        <div id="gallery" class="gallery">
+            <div class="loading">
+                <i class="fas fa-spinner fa-spin"></i><br>
+                Cargando fotografías...
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Selection Modal -->
+    <div id="categoryModal" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-title">¿Para qué quieres esta foto?</h2>
+            <div class="category-options">
+                <div class="category-option" data-category="imprimir">
+                    <i class="fas fa-print"></i> Para Imprimir (5x7")
+                </div>
+                <div class="category-option" data-category="ampliar">
+                    <i class="fas fa-expand"></i> Para Ampliar (40x50 cm)
+                </div>
+                <div class="category-option" data-category="redes">
+                    <i class="fas fa-share-alt"></i> Para Redes Sociales
+                </div>
+                <div class="category-option" data-category="web">
+                    <i class="fas fa-globe"></i> Para Invitación Web
+                </div>
+            </div>
+            <button class="modal-close" onclick="closeModal()">Cancelar</button>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">×</span>
+        <span class="lightbox-nav lightbox-prev" onclick="navigateImage(-1)">‹</span>
+        <img id="lightboxImg" src="" alt="">
+        <span class="lightbox-nav lightbox-next" onclick="navigateImage(1)">›</span>
+    </div>
+
+    <script>
+        // Estado de la aplicación
+        let allPhotos = [];
+        let selectedPhotos = {};
+        let currentFilter = 'all';
+        let currentPhotoIndex = 0;
+        let selectedPhotoForCategory = null;
+
+        // Categorías en español
+        const categoryNames = {
+            'imprimir': 'Imprimir',
+            'ampliar': 'Ampliar',
+            'redes': 'Redes',
+            'web': 'Web'
+        };
+
+        // Cargar fotos al iniciar
+        async function loadPhotos() {
+            try {
+                // Cargar índice de fotos
+                const response = await fetch('fotos/photos.json');
+                if (!response.ok) {
+                    throw new Error('No se pudo cargar el índice de fotos');
+                }
+
+                allPhotos = await response.json();
+
+                if (allPhotos.length === 0) {
+                    throw new Error('No se encontraron fotos');
+                }
+
+                renderGallery();
+            } catch (error) {
+                console.error('Error cargando fotos:', error);
+                document.getElementById('gallery').innerHTML = `
+                    <div class="loading">
+                        <i class="fas fa-exclamation-triangle"></i><br>
+                        Error cargando las fotografías<br>
+                        <small>${error.message}</small>
+                    </div>
+                `;
+            }
+        }
+
+        // Renderizar galería
+        function renderGallery() {
+            const gallery = document.getElementById('gallery');
+
+            let photosToShow = allPhotos;
+            if (currentFilter !== 'all') {
+                photosToShow = allPhotos.filter(photo =>
+                    selectedPhotos[photo.id] === currentFilter
+                );
+            }
+
+            if (photosToShow.length === 0 && currentFilter !== 'all') {
+                gallery.innerHTML = `
+                    <div class="loading">
+                        <i class="fas fa-info-circle"></i><br>
+                        No hay fotos en esta categoría
+                    </div>
+                `;
+                return;
+            }
+
+            gallery.innerHTML = photosToShow.map(photo => `
+                <div class="photo-card ${selectedPhotos[photo.id] ? 'selected' : ''}"
+                     data-id="${photo.id}"
+                     onclick="selectPhoto(${photo.id})"
+                     ondblclick="openLightbox(${photo.id})">
+                    <img src="${photo.url}" alt="${photo.filename}" loading="lazy">
+                    ${selectedPhotos[photo.id] ? `
+                        <div class="category-badge">${categoryNames[selectedPhotos[photo.id]]}</div>
+                        <div class="select-overlay">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                    ` : ''}
+                </div>
+            `).join('');
+
+            updateCounter();
+        }
+
+        // Seleccionar foto
+        function selectPhoto(photoId) {
+            if (selectedPhotos[photoId]) {
+                // Si ya está seleccionada, deseleccionar
+                delete selectedPhotos[photoId];
+                renderGallery();
+            } else {
+                // Mostrar modal para elegir categoría
+                selectedPhotoForCategory = photoId;
+                document.getElementById('categoryModal').classList.add('active');
+            }
+        }
+
+        // Seleccionar categoría
+        document.querySelectorAll('.category-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const category = this.dataset.category;
+                selectedPhotos[selectedPhotoForCategory] = category;
+                closeModal();
+                renderGallery();
+            });
+        });
+
+        // Cerrar modal
+        function closeModal() {
+            document.getElementById('categoryModal').classList.remove('active');
+            selectedPhotoForCategory = null;
+        }
+
+        // Actualizar contador
+        function updateCounter() {
+            const count = Object.keys(selectedPhotos).length;
+            document.getElementById('selectedCount').textContent = count;
+        }
+
+        // Filtrar fotos
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.dataset.filter;
+                renderGallery();
+            });
+        });
+
+        // Limpiar selección
+        function clearAll() {
+            if (Object.keys(selectedPhotos).length === 0) return;
+            if (confirm('¿Estás segura de que quieres limpiar toda la selección?')) {
+                selectedPhotos = {};
+                renderGallery();
+            }
+        }
+
+        // Enviar por WhatsApp
+        function sendSelection() {
+            const count = Object.keys(selectedPhotos).length;
+            if (count === 0) {
+                alert('Por favor selecciona al menos una foto');
+                return;
+            }
+
+            // Agrupar por categoría
+            const byCategory = {};
+            Object.entries(selectedPhotos).forEach(([photoId, category]) => {
+                if (!byCategory[category]) byCategory[category] = [];
+                const photo = allPhotos.find(p => p.id == photoId);
+                byCategory[category].push(photo.filename);
+            });
+
+            // Crear mensaje
+            let message = `*Selección de Fotos - XV Años Isis Francia Sarabi*\n\n`;
+            message += `Total de fotos seleccionadas: ${count}\n\n`;
+
+            Object.entries(byCategory).forEach(([category, photos]) => {
+                message += `*${categoryNames[category]}:* ${photos.length} fotos\n`;
+                photos.forEach(filename => {
+                    message += `• ${filename}\n`;
+                });
+                message += '\n';
+            });
+
+            // Número de WhatsApp de Foro 7
+            const phoneNumber = '5214779203776';
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        // Lightbox
+        function openLightbox(photoId) {
+            const photo = allPhotos.find(p => p.id === photoId);
+            currentPhotoIndex = allPhotos.indexOf(photo);
+            document.getElementById('lightboxImg').src = photo.url;
+            document.getElementById('lightbox').classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        function navigateImage(direction) {
+            currentPhotoIndex += direction;
+            if (currentPhotoIndex < 0) currentPhotoIndex = allPhotos.length - 1;
+            if (currentPhotoIndex >= allPhotos.length) currentPhotoIndex = 0;
+            document.getElementById('lightboxImg').src = allPhotos[currentPhotoIndex].url;
+        }
+
+        // Cerrar modal con Escape
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeModal();
+                closeLightbox();
+            }
+        });
+
+        // Cargar fotos al iniciar
+        loadPhotos();
+    </script>
+</body>
+</html>
