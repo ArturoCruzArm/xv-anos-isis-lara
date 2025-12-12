@@ -514,6 +514,62 @@
                 opacity: 0;
             }
         }
+
+        /* Music Player Button */
+        .music-player {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .music-btn {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--purple-dark);
+            border: 3px solid var(--gold-light);
+            cursor: pointer;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+            transition: all 0.3s ease;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.7);
+        }
+
+        .music-btn:active {
+            transform: scale(0.95);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 6px 25px rgba(212, 175, 55, 0.5);
+            }
+            50% {
+                box-shadow: 0 6px 35px rgba(212, 175, 55, 0.8);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .music-player {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .music-btn {
+                width: 60px;
+                height: 60px;
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -523,6 +579,17 @@
     <div class="floating-flower" style="left: 50%; animation-delay: 6s;">❁</div>
     <div class="floating-flower" style="left: 70%; animation-delay: 9s;">❀</div>
     <div class="floating-flower" style="left: 90%; animation-delay: 12s;">✿</div>
+
+    <!-- Music Player -->
+    <audio id="backgroundMusic" loop>
+        <source src="musica/La Magia de Mis Quince Años.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-player">
+        <button id="musicBtn" class="music-btn" onclick="toggleMusic()" title="Reproducir música">
+            <i class="fas fa-play"></i>
+        </button>
+    </div>
 
     <div class="container">
         <!-- Header -->
@@ -865,6 +932,25 @@
                 }
             });
         });
+
+        // Music Player
+        const music = document.getElementById('backgroundMusic');
+        const musicBtn = document.getElementById('musicBtn');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicBtn.innerHTML = '<i class="fas fa-play"></i>';
+                musicBtn.title = 'Reproducir música';
+                isPlaying = false;
+            } else {
+                music.play();
+                musicBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                musicBtn.title = 'Pausar música';
+                isPlaying = true;
+            }
+        }
     </script>
 </body>
 </html>
