@@ -16,3 +16,15 @@ node_modules/
 
 # Git
 .git/
+
+# Fotos del evento
+fotos/
+clasificadas/
+usb/
+imagenes/
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.mp4
+*.mov
