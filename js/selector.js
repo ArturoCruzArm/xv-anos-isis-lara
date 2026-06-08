@@ -1092,6 +1092,11 @@ const PHOTO_FILES = [
 ];
 
 const photos = PHOTO_FILES.map(filename => `fotos/${filename}`);
+// Thumbnail helper
+function getThumbPath(fullPath) {
+    return fullPath.replace('fotos/', 'fotos/thumb/');
+}
+
 
 
 // LIMITS FOR ISIS'S PACKAGE
